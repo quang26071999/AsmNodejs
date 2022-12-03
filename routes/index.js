@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const insert = require('./insert');
 const Images = require('../model/imageModel');
 
-mongoose.connect('mongodb+srv://quang123:quang123@cluster0.umb30uq.mongodb.net/test');
+mongoose.connect('mongodb+srv://quang123:quang123@cluster0.umb30uq.mongodb.net/');
 
 router.get('/', (req, res, next) => {
     let perPage = 6; // số lượng sản phẩm xuất hiện trên 1 page
