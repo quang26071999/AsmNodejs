@@ -2,7 +2,6 @@
 const multer = require("multer");
 const  Images = require('../model/imageModel');
 const sharp = require('sharp');
-const path = require('path');
 const sizeOf = require('image-size');
 const alert = require('alert');
 
@@ -18,7 +17,7 @@ function insert(router){
         storage: Storage,
     })
 
-    router.post('/insertImg',upload.single('img'),function (req, res, next){
+    router.post('/insertImg',upload.single('img'),function (req, res){
         const description = req.body.description;
         const title = req.body.title;
         const img = req.file.path;
