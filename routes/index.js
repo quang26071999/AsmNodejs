@@ -19,7 +19,6 @@ router.get('/', (req, res, next) => {
                 if (err) return next(err);
                 res.render('index', {
                     products: products, // sản phẩm trên một page
-                    current: page, // page hiện tại
                     pages: Math.ceil(count / perPage) // tổng số các page
                 });
             });
@@ -54,7 +53,7 @@ router.get('/getImg/:page', (req, res, next) => {
         .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
         .limit(perPage)
         .exec((err, products) => {
-            Images.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+            Images.countDocuments((err) => { // đếm để tính có bao nhiêu trang
                 if (err) return next(err);
                 res.json(products);
             });
